@@ -1,12 +1,10 @@
 <template>
-    <div>
-      <h1>{{ error.statusCode }} - Page non trouvée</h1>
-      <p>Désolé, la page que vous recherchez est introuvable.</p>
-      <!-- Ajoutez ici du contenu personnalisé pour la page 404 -->
-    </div>
-  </template>
-  
-  <script setup>
-      defineProps(['error'])
-  </script>
-  
+  <div>
+      <NuxtLink to="/">Home page</NuxtLink>
+      <PageNotFound v-if="error.statusCode === 404" :message="error.message" />
+  </div>
+</template>
+
+<script setup>
+  const error = defineProps(['error'])
+</script>

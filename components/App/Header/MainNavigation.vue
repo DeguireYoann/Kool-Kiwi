@@ -1,34 +1,34 @@
 <template>
     <div class="flex space-x-8">
-        <a class="flex text-gray-600 hover:text-green-500
+        <NuxtLink to="/" class="flex text-gray-600 hover:text-green-500
                     cursor-pointer transition-colors duration-300">
             Home
-        </a>
+        </NuxtLink>
 
-        <a class="flex text-gray-600 
+        <NuxtLink to="/productslist" class="flex text-gray-600 
                     cursor-pointer transition-colors duration-300
                     font-semibold text-green-600">
             Products
-        </a>
+        </NuxtLink>
 
-        <a class="flex text-gray-600 hover:text-green-500
+        <NuxtLink class="flex text-gray-600 hover:text-green-500
                     cursor-pointer transition-colors duration-300">
             Locations
-        </a>
+        </NuxtLink>
 
-        <a class="flex text-gray-600 hover:text-green-500
+        <NuxtLink class="flex text-gray-600 hover:text-green-500
                     cursor-pointer transition-colors duration-300">
             Pricing
-        </a>
+        </NuxtLink>
 
-        <a class="flex text-gray-600 hover:text-green-500
+        <NuxtLink class="flex text-gray-600 hover:text-green-500
                     cursor-pointer transition-colors duration-300">
             Blog
-        </a>
+        </NuxtLink>
 
-        <a class="flex text-gray-600 hover:text-green-500
+        <NuxtLink class="flex text-gray-600 hover:text-green-500
                     cursor-pointer transition-colors duration-300">
             About Us
-        </a>
+        </NuxtLink>
     </div>
 </template>

@@ -12,7 +12,7 @@
                 <!-- Icon Menu Section -->
                 <div class="flex items-center space-x-5">
                     <!-- Register -->
-                    <a class="flex text-gray-600 hover:text-green-500
+                    <NuxtLink class="flex text-gray-600 hover:text-green-500
                     cursor-pointer transition-colors duration-300">
 
                         <svg class="fill-current h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg"
@@ -23,10 +23,10 @@
                         </svg>
 
                         Register
-                    </a>
+                    </NuxtLink>
 
                     <!-- Login -->
-                    <a class="flex text-gray-600 hover:text-green-500
+                    <NuxtLink class="flex text-gray-600 hover:text-green-500
                     cursor-pointer transition-colors duration-300
                     font-semibold text-green-600">
 
@@ -38,7 +38,7 @@
                         </svg>
 
                         Login
-                    </a>
+                    </NuxtLink>
                 </div>
             </div>
             <div class="flex w-full py-2">

@@ -17,11 +17,11 @@
                 </div>
                 <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
             </div>
-            <a href="#" class="ms-auto text-sm text-green-700 hover:underline dark:text-green-500">Lost Password?</a>
+            <NuxtLink to="#" class="ms-auto text-sm text-green-700 hover:underline dark:text-green-500">Lost Password?</NuxtLink>
         </div>
         <button type="submit" class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Login to your account</button>
         <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-            Not registered? <a href="#" class="text-green-700 hover:underline dark:text-green-500">Create account</a>
+            Not registered? <NuxtLink to="#" class="text-green-700 hover:underline dark:text-green-500">Create account</NuxtLink>
         </div>
     </form>
 </div>

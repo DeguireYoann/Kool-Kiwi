@@ -1,12 +1,22 @@
-<script>
-
+<script setup>
 const search = ref("")
+
+const handlerSearch = async () => {
+    navigateTo({
+        path: '/productslist',
+        query: {
+            search: search.value,
+            page: 1,
+            sort: 'asc'
+        }
+    });
+}
 </script>
 
 <template>
-    <form class="flex w-full">
+    <form @submit.prevent="onSubmit" class="flex w-full">
         <div class="flex w-full items-center">
-            <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your
+            <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">Your
                 Email</label>
             <button id="dropdown-button" data-dropdown-toggle="dropdown"
                 class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 border border-gray-300 rounded-s-lg focus:ring-4 focus:outline-none focus:ring-gray-100"
@@ -16,23 +26,23 @@ const search = ref("")
                         d="m1 1 4 4 4-4" />
                 </svg></button>
             <div id="dropdown"
-                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
                     <li>
                         <button type="button"
-                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mockups</button>
+                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100">Mockups</button>
                     </li>
                     <li>
                         <button type="button"
-                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Templates</button>
+                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100">Templates</button>
                     </li>
                     <li>
                         <button type="button"
-                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Design</button>
+                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100">Design</button>
                     </li>
                     <li>
                         <button type="button"
-                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logos</button>
+                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100">Logos</button>
                     </li>
                 </ul>
             </div>
@@ -40,9 +50,10 @@ const search = ref("")
                 <input type="search" id="search-dropdown"
                     v-model="search"
                     class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-green-500 focus:border-green-500"
-                    placeholder="Search Mockups, Logos, Design Templates..." required>
-                <button type="submit"
-                    class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-green-700 rounded-e-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    placeholder="Search product by name or sku..." required>
+                <button @click="handlerSearch"
+                type="submit"
+                    class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-green-700 rounded-e-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300">
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 20 20">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

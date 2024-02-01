@@ -11,3 +11,11 @@
     <BannerAbout />
   </div>
 </template>
+
+<script setup lang="ts">
+// import { contentClient } from '~/server/contentful/client';
+// const contenue = contentClient;
+// contenue.getEntry('5p2LD7Uku7QYo863YbqdkG')
+//   .then((entry: any) => console.log(entry))
+//   .catch(console.error)
+</script>
