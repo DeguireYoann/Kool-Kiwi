@@ -7,19 +7,19 @@ import { commercetoolsApiHost, commercetoolsAuthHost, commercetoolsClientID, com
 const createApiClient = () => {
 	const authOptions: AuthMiddlewareOptions = {
 		credentials: {
-			clientId: commercetoolsClientID,
-			clientSecret: commercetoolsClientSecret,
+			clientId: commercetoolsClientID ?? "",
+			clientSecret: commercetoolsClientSecret ?? "",
 		},
-		host: commercetoolsAuthHost,
-		projectKey: commercetoolsProjectKey,
+		host: commercetoolsAuthHost ?? "",
+		projectKey: commercetoolsProjectKey ?? "",
 		fetch,
 	};
 
-	const httpOptions: HttpMiddlewareOptions = { host: commercetoolsApiHost, fetch };
+	const httpOptions: HttpMiddlewareOptions = { host: commercetoolsApiHost  ?? "", fetch };
 
 	const client = new ClientBuilder().withClientCredentialsFlow(authOptions).withHttpMiddleware(httpOptions).build();
 
-	return createApiBuilderFromCtpClient(client).withProjectKey({ projectKey: commercetoolsProjectKey });
+	return createApiBuilderFromCtpClient(client).withProjectKey({ projectKey: commercetoolsProjectKey ?? ""});
 };
 
 export const apiRoot = createApiClient();

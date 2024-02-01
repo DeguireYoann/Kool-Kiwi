@@ -1,10 +1,9 @@
-import commercetoolsConfig from "~/.commercetools.json"
 
-const commercetoolsProjectKey = commercetoolsConfig.CTP_PROJECT_KEY;
-const commercetoolsClientSecret = commercetoolsConfig.CTP_CLIENT_SECRET;
-const commercetoolsClientID = commercetoolsConfig.CTP_CLIENT_ID;
-const commercetoolsAuthHost = commercetoolsConfig.CTP_AUTH_URL;
-const commercetoolsApiHost = commercetoolsConfig.CTP_API_URL;
+const commercetoolsProjectKey = process.env.CTP_PROJECT_KEY;
+const commercetoolsClientSecret = process.env.CTP_CLIENT_SECRET;
+const commercetoolsClientID = process.env.CTP_CLIENT_ID;
+const commercetoolsAuthHost = process.env.CTP_AUTH_URL;
+const commercetoolsApiHost = process.env.CTP_API_URL;
 
 export {
     commercetoolsProjectKey,
