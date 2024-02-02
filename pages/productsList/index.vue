@@ -1,41 +1,44 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { AlgoliaProductRecord } from '~/server/lib/types';
-import { getProductIndex } from '~/server/algolia/client'
 
-const products = ref<AlgoliaProductRecord[]>([]);
 const route = useRoute();
+const runtimeConfig = useRuntimeConfig();
+const algoliaIndexName = runtimeConfig.ALGOLIA_INDEX;
+const routeQuery = computed(() => route.query);
 
-// Function to fetch products based on query
-const fetchProducts = async (query: any) => {
+const fetchProductsData = async () => {
+  if (!algoliaIndexName) {
+    throw new Error("Missing Algolia Index");
+  }
   try {
-    const results = await getProductIndex().search(query || '');
-    products.value = results.hits as AlgoliaProductRecord[] || [];
+    const { data, error } = await useAsyncAlgoliaSearch({
+      indexName: runtimeConfig.ALGOLIA_INDEX,
+      query: routeQuery.value.search?.toString() ?? "",
+    });
+    return data?.value?.hits as AlgoliaProductRecord[] || [];
   } catch (error) {
     console.error(error);
+    return [];
   }
 };
 
-// Watch for changes in route.query and fetch products
-watch(
-  () => route.query.search,
-  (newValue, oldValue) => {
-    if (newValue !== oldValue) {
-      fetchProducts(newValue);
-    }
-  }
-);
-
-// Initial product fetching on component mount
-onMounted(() => {
-  fetchProducts(route.query.search);
+const { data: products, pending: loading, error } = useAsyncData("getProduct", fetchProductsData, {
+  watch: [routeQuery],
 });
 </script>
 
 <template>
-  <div v-if="products.length > 0" class="productList flex flex-wrap">
-    <ProductsListCard v-for="product in products" :key="product.objectID" :product="product" />
+  <div>
+    <div v-if="loading" type="button" class="bg-indigo-500 ..." disabled>
+      Processing...
+    </div>
+    <div v-if="!loading">
+      <div v-if="products && products.length > 0" class="productList flex flex-wrap">
+        <ProductsListCard v-for="product in products" :key="product.objectID" :product="product" />
+      </div>
+      <div v-else>
+        No product found!
+      </div>
   </div>
-  <div v-else>
-    No product found!
-  </div>
+</div>
 </template>

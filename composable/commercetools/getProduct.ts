@@ -1,8 +1,6 @@
-import type { AlgoliaProductRecord, GraphQLResponseBodyData, Product, ProductQueryVariables, ProductVariant } from "../lib/types";
-import { getProductIndex, clearProductIndex } from "../algolia/client";
-import { mapProductToAlgolia } from "../lib/mappers";
-import { productQuery } from "../lib/queries";
-import { apiRoot } from "../utils/httpApiClient";
+import type { AlgoliaProductRecord, Product } from "../../server/lib/types";
+import { mapProductToAlgolia } from "../../server/lib/mappers";
+import { apiRoot } from "../../server/utils/httpApiClient";
 
 const getProduct = async (id: string): Promise<any> => {
 	const response = await apiRoot
@@ -25,7 +23,7 @@ const mapProductToRecord = (product: Product): AlgoliaProductRecord => {
 	return mapProductToAlgolia(product, productVariant);
 };
 
-export const fetchProduct = async (id: string) => {
+export const fetchProduct = async (id: string): Promise<AlgoliaProductRecord> => {
     const product = await getProduct(id);
     console.log(product);
 	return mapProductToRecord(product);

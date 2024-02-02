@@ -1,7 +1,7 @@
 <template>
     <section class="flex space-x-8 my-12 shadow-md p-6">
         <div>
-            <img src="assets/images/banner/wynand-van.jpg"  class="rounded-full" width="500"/>
+            <img src="/assets/images/banner/wynand-van.jpg"  class="rounded-full" width="500"/>
         </div>
         <div>
             <p

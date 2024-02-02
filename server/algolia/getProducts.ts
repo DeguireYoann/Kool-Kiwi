@@ -1,5 +1,4 @@
 import type { AlgoliaProductRecord, GraphQLResponseBodyData, Product, ProductBatchQueryVariables } from "../lib/types";
-import { getProductIndex, clearProductIndex, searchClient } from "../algolia/client";
 import { mapProductToAlgolia } from "../lib/mappers";
 import { productBatchQuery } from "../lib/queries";
 import { apiRoot } from "../utils/httpApiClient";
@@ -56,7 +55,6 @@ const mapProductsToRecords = (products: Product[]): AlgoliaProductRecord[] => {
 
 
 const getProducts = async (): Promise<AlgoliaProductRecord[]> => {
-	await clearProductIndex();
 	const products = await getProductsData();
 	return mapProductsToRecords(products);
 };

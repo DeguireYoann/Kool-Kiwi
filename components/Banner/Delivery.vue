@@ -1,7 +1,7 @@
 <template>
     <section class="flex bg-gray-800">
         <div>
-            <img src="assets/images/banner/delivery.jpg" />
+            <img src="/assets/images/banner/delivery.jpg" />
         </div>
         <div class="flex flex-col align-center p-20">
             <h2 class="text-2xl font-extrabold tracking-tight text-white ">We
