@@ -1,0 +1,17 @@
+query GetMainNavigationItems ($locale: String!, $uid: String!) {
+  navigationMenu (id: $uid, locale: $locale) {
+    menuItemsCollection(locale: $locale) {
+      items {
+        groupName
+        groupLink {
+            ...PageFields
+          }
+      }
+    }
+  }
+}
+
+fragment PageFields on Page {
+  pageName
+  slug
+}

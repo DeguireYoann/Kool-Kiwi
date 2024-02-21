@@ -1,0 +1,22 @@
+fragment ComponentDuplexFields on ComponentDuplex {
+  containerLayout
+  internalName
+  headline
+  ctaText
+  targetPage {
+    ...PageFields
+  }
+  image {
+    contentType
+    description
+    fileName
+    height
+    size
+    title
+    url
+    width
+  }
+  imageStyle
+  colorPalette
+}
+

@@ -1,0 +1,21 @@
+fragment HeroBannerFields on ComponentHeroBanner {
+  internalName
+  headline
+  ctaText
+  targetPage {
+    ...PageFields
+  }
+  image {
+    contentType
+    description
+    fileName
+    height
+    size
+    title
+    url
+    width
+  }
+  imageStyle
+  heroSize
+  colorPalette
+}

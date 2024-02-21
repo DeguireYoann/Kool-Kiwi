@@ -7,9 +7,11 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "codegen": "graphql-codegen --config infra/codegen.ts --require dotenv/config"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
     "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.1.0",
     "@nuxtjs/tailwindcss": "^6.10.1",
@@ -17,22 +19,36 @@
     "nuxt": "^3.8.2",
     "stylelint": "^16.0.2",
     "vue": "^3.3.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
     "@commercetools/platform-sdk": "^7.1.0",
     "@commercetools/sdk-client-v2": "^2.3.0",
     "@formkit/auto-animate": "^0.8.1",
+    "@graphql-codegen/add": "^3.2.1",
+    "@graphql-codegen/cli": "^2.15.0",
+    "@graphql-codegen/schema-ast": "^2.5.1",
+    "@graphql-codegen/typed-document-node": "^5.0.4",
+    "@graphql-codegen/typescript": "^2.8.3",
+    "@graphql-codegen/typescript-operations": "^2.5.8",
+    "@graphql-codegen/typescript-vue-apollo": "^4.1.1",
     "@nuxtjs/algolia": "^1.10.1",
+    "@nuxtjs/apollo": "^5.0.0-alpha.11",
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/stylelint-module": "^5.1.0",
     "@pinia/nuxt": "^0.5.1",
+    "@types/node": "^18.0.6",
     "algolia": "^0.0.0",
     "contentful": "^10.6.15",
     "dotenv": "^16.3.1",
-    "firebase": "^10.7.1",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
     "ipx": "^2.0.2",
-    "mssql": "^10.0.1",
-    "pinia": "^2.1.7"
+    "nodemon": "^2.0.21",
+    "pinia": "^2.1.7",
+    "vue-server-renderer": "2.6.6",
+    "vue-template-compiler": "2.6.6"
   }
 }

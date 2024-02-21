@@ -1,0 +1,14 @@
+query GetHomePage ($locale: String!, $uid: String!) {
+  page(id: $uid, locale: $locale) {
+    slug
+    pageName
+    topSectionCollection {
+      items {
+        ...HeroBannerFields
+        ...ComponentDuplexFields
+      }
+    }
+  }
+}
+
+#3t7Iub6Arm23Cn7wWkIJTd

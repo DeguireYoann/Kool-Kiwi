@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/algolia', "@nuxt/image"],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/algolia', "@nuxt/image", '@nuxtjs/apollo'],
   runtimeConfig: {
     ALGOLIA_APPID: process.env.ALGOLIA_APPID,
     ALGOLIA_API_KEY: process.env.ALGOLIA_API_KEY,
@@ -27,4 +27,17 @@ export default defineNuxtConfig({
       theme: 'algolia'
     },
   },
+  apollo: {
+    clients: {
+      default: {
+        httpEndpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.CTF_SPACE_ID}/environments/${process.env.CTF_ENVIRONMENT}`,
+        httpLinkOptions: {
+          headers: {
+            Authorization: `Bearer ${process.env.CTF_CDA_ACCESS_TOKEN}`,
+          },
+        },
+      }
+    },
+  },
+  ssr: true
 })

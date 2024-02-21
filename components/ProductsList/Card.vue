@@ -15,13 +15,13 @@ const path = `/productdetails/${props.product.productId}`;
 
 <template>
   <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow m-2 flex flex-col">
-    <NuxtLink :to="path" class="flex align-center justify-center">
+    <a :href="path" class="flex align-center justify-center">
       <NuxtImg class="p-8 rounded-t-lg w-52 h-52" :src="img" :alt="product.name" />
-    </NuxtLink>
+    </a>
     <div class="px-5 pb-5 flex flex-col h-full">
-      <NuxtLink :to="path">
+      <a :href="path">
         <h5 class="text-xl font-semibold tracking-tight text-gray-900">{{ product.name }}</h5>
-      </NuxtLink>
+      </a>
       <p class="text-gray-500 text-sm">By <a href="#" class="text-green-700 hover:underline">ABC Company</a></p>
       <ProductAttributes :attributes="attributes" :limite="1" />
       <!-- ... Autres détails du produit ... -->
