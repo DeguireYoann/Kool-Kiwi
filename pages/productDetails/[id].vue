@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-// import { fetchProduct } from '~/composable/commercetools/getProduct';
 import type { AlgoliaProductRecord } from '~/server/lib/types';
 
 const route = useRoute();
@@ -21,17 +20,6 @@ const fetchProduct = async () => {
     return [];
   }
 };
-
-// TODO --> Use function to call commercetools instead of Algolia
-// const fetchProductData = async () => {
-//   try {
-//     const product = await fetchProduct(route.params.id.toString());
-//     return product as AlgoliaProductRecord;
-//   } catch (error) {
-//     console.error(error);
-//     return [];
-//   }
-// };
 
 const { data: product, pending: loading, error } = useAsyncData("getProduct", fetchProduct);
 

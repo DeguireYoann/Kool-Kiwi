@@ -1,14 +1,3 @@
-<template>
-    <div class="flex space-x-8">
-        <div v-for="link in computedPagesLinks">    
-            <a :href="link.url" class="flex text-gray-600 hover:text-green-500
-                    cursor-pointer transition-colors duration-300">
-                {{link.name}}
-            </a>
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
 import { GetMainNavigationItemsDocument, type MenuGroup } from "~/dist/index"
 
@@ -30,3 +19,14 @@ const pagesLinks = ref(data?.value?.navigationMenu.menuItemsCollection.items.map
 const computedPagesLinks = computed(() => pagesLinks.value);
 
 </script>
+
+<template>
+    <div class="flex space-x-8">
+        <div v-for="link in computedPagesLinks" :key="link.url">    
+            <a :href="link.url" class="flex text-gray-600 hover:text-green-500
+                    cursor-pointer transition-colors duration-300">
+                {{link.name}}
+            </a>
+        </div>
+    </div>
+</template>

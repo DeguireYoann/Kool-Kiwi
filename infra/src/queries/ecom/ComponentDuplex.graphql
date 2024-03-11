@@ -18,5 +18,8 @@ fragment ComponentDuplexFields on ComponentDuplex {
   }
   imageStyle
   colorPalette
-}
+  bodyText {
+    json
+  }
+  }
 
