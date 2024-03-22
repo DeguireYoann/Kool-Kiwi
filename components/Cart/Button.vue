@@ -1,5 +1,4 @@
 
-import type { imgProps } from '@nuxt/image/dist/runtime/components/nuxt-img';
 <script setup lang="ts">
 import { defineProps } from 'vue';
 

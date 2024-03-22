@@ -23,6 +23,7 @@ const props = defineProps({
   },
 });
 
-let bodyText = "";
-props.item.bodyText.json.content.forEach(e => e.content.forEach(f => bodyText += f.value ?? ""));
+const bodyText = props.item.bodyText?.json?.content
+  .flatMap(e => e.content.map(f => f.value ?? ""))
+  .join("") ?? "";
 </script>

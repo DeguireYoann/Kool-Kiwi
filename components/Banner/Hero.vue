@@ -5,8 +5,8 @@
         </div>
         <div class="flex flex-col align-center p-20">
             <h2 class="text-2xl font-extrabold tracking-tight text-white ">{{item.headline}}</h2>
-            <p v-if="item.bodytext" class="text-lg font-normal text-gray-300">Here at "Kool" thing we focus on
-                {{item.bodytext}}
+            <p v-if="bodytext" class="text-lg font-normal text-gray-300">Here at "Kool" thing we focus on
+                {{bodytext}}
             </p>
             <div class="flex flex-col sm:flex-row my-6">
                 <a v-if="item.targetPage" :href="item.targetPage.slug"
@@ -25,4 +25,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+const bodyText = props.item.bodyText?.json?.content
+  .flatMap(e => e.content.map(f => f.value ?? ""))
+  .join("") ?? "";
 </script>

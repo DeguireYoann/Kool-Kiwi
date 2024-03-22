@@ -1,5 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        { rel: 'stylesheet', href: 'https://static.cloud.coveo.com/atomic/v2/themes/coveo.css' },
+      ],
+      script: [{ src: 'https://static.cloud.coveo.com/atomic/v2/atomic.esm.js' }],
+    },
+  },
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss',
@@ -7,7 +15,7 @@ export default defineNuxtConfig({
     '@nuxtjs/algolia',
     "@nuxt/image",
     '@nuxtjs/apollo',
-    'nuxt-auth-utils'
+    'nuxt-auth-utils',
   ],
   runtimeConfig: {
     ALGOLIA_APPID: process.env.ALGOLIA_APPID,

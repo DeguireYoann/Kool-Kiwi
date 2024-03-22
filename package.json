@@ -28,6 +28,7 @@
     "@auth0/auth0-vue": "^2.3.3",
     "@commercetools/platform-sdk": "^7.1.0",
     "@commercetools/sdk-client-v2": "^2.3.0",
+    "@coveo/atomic": "^2.62.1",
     "@formkit/auto-animate": "^0.8.1",
     "@graphql-codegen/add": "^3.2.1",
     "@graphql-codegen/cli": "^2.15.0",

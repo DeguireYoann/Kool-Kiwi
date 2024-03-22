@@ -3,17 +3,15 @@ import {useAuth0} from "@auth0/auth0-vue";
 // const { loggedIn, user, session, clear } = useUserSession();
 
 const auth0 = useAuth0();
-
-const isAuthenticated = auth0.isAuthenticated;
-const user = auth0.user;
-
+const {user, isAuthenticated} = computed(() => auth0);
+console.log(auth0, "WRESC");
 const login = () => {
   auth0?.checkSession()
   if (!auth0?.isAuthenticated.value) {
     auth0?.loginWithPopup()
   }
 }
-console.log(user)
+
 </script>
 
 <template>

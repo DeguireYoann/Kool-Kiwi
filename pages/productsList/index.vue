@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts">  
 import type { AlgoliaProductRecord } from '~/server/lib/types';
 
 const runtimeConfig = useRuntimeConfig();
@@ -26,7 +26,6 @@ const fetchProductsData = async () => {
 const { data: products, pending: loading, error } = useAsyncData("getProduct", fetchProductsData, {
   watch: [routeQuery],
 });
-
 </script>
 
 <template>
