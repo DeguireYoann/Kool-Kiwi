@@ -1,19 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    head: {
-      link: [
-        { rel: 'stylesheet', href: 'https://static.cloud.coveo.com/atomic/v2/themes/coveo.css' },
-      ],
-      script: [{ src: 'https://static.cloud.coveo.com/atomic/v2/atomic.esm.js' }],
-    },
-  },
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     '@nuxtjs/algolia',
-    "@nuxt/image",
+    '@nuxt/image',
     '@nuxtjs/apollo',
     'nuxt-auth-utils',
   ],
@@ -31,10 +23,10 @@ export default defineNuxtConfig({
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
     CTF_PERSON_ID: process.env.CTF_PERSON_ID,
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
-    AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
-    AUTH0_CLIENTID: process.env.AUTH0_CLIENTID,
     AUTH0_CLIENTSECRET: process.env.AUTH0_CLIENTSECRET,
     public: {
+      AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
+      AUTH0_CLIENTID: process.env.AUTH0_CLIENTID,
       ALGOLIA_INDEX: process.env.ALGOLIA_INDEX,
     },
     oauth: {

@@ -4,18 +4,21 @@ import {
 import auth from "~/middleware/auth";
 
 
-export default defineNuxtPlugin((app)=> {
-    const runtimeConfig = useRuntimeConfig();
+export default defineNuxtPlugin((app) => {
+    const runtimeConfig = useRuntimeConfig()
 
     const auth0 = createAuth0({
-        domain: runtimeConfig.AUTH0_DOMAIN ?? process.env.AUTH0_DOMAIN,
-        clientId: runtimeConfig.AUTH0_CLIENTID ?? process.env.AUTH0_CLIENTID,
+        domain: runtimeConfig.public.AUTH0_DOMAIN,
+        clientId: runtimeConfig.public.AUTH0_CLIENTID,
         authorizationParams: {
             redirect_uri: 'http://localhost:3000'
         }
     });
-    console.log(auth0, runtimeConfig.AUTH0_CLIENTID, "YEEEEEEEEEEEEEEEEEEEET")
-    app.vueApp.use(auth0);
+    if (process.client) {
+        app.vueApp.use(auth0);
+    }
 
-    addRouteMiddleware('auth', auth, { global: true })
+    addRouteMiddleware('auth', auth, {
+        global: true
+    })
 })
