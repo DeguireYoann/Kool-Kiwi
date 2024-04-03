@@ -1,15 +1,23 @@
 <script setup lang="ts">
-import {useAuth0} from "@auth0/auth0-vue";
+import {
+    useAuth0
+} from "@auth0/auth0-vue";
 // const { loggedIn, user, session, clear } = useUserSession();
+const auth0 = process.client ? useAuth0() : undefined
+ 
+const isAuthenticated = computed(() => {
+  return auth0?.isAuthenticated.value
+})
+ 
+const user = computed(() => {
+  return auth0?.user.value
+})
 
-const auth0 = useAuth0();
-const {user, isAuthenticated} = computed(() => auth0);
-console.log(auth0, "WRESC");
 const login = () => {
-  auth0?.checkSession()
-  if (!auth0?.isAuthenticated.value) {
-    auth0?.loginWithPopup()
-  }
+    auth0?.checkSession()
+    if (!auth0?.isAuthenticated.value) {
+        auth0?.loginWithPopup()
+    }
 }
 
 </script>

@@ -5,7 +5,7 @@ import auth from "~/middleware/auth";
 
 
 export default defineNuxtPlugin((app) => {
-    const runtimeConfig = useRuntimeConfig()
+    const runtimeConfig = useRuntimeConfig();
 
     const auth0 = createAuth0({
         domain: runtimeConfig.public.AUTH0_DOMAIN,
@@ -15,10 +15,19 @@ export default defineNuxtPlugin((app) => {
         }
     });
     if (process.client) {
-        app.vueApp.use(auth0);
+        app.vueApp.use(auth0)
     }
 
-    addRouteMiddleware('auth', auth, {
-        global: true
+    addRouteMiddleware('auth', () => {
+        if (process.client) {
+            auth0.checkSession()
+            if (!auth0.isAuthenticated.value) {
+                auth0.loginWithRedirect({
+                    appState: {
+                        target: useRoute().path,
+                    },
+                })
+            }
+        }
     })
 })
